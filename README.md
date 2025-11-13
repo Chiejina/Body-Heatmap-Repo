@@ -2,15 +2,9 @@
 
 Interactive body heatmap component for visualizing muscle engagement. Available for both **SwiftUI (iOS)** and **Web (HTML/JS)**.
 
-Perfect for fitness apps, workout trackers, exercise analytics, and training visualizations.
+**[Live Web Demo](https://chiejina.github.io/Body-Heatmap-Repo/)**
 
-🌐 **[Live Web Demo](https://chiejina.github.io/Body-Heatmap-Repo/web-demo/)** - Try it now!
-
-![Body Heatmap Demo](demo.png)
-
-## 🚀 Quick Start
-
-Choose your platform:
+## Installation
 
 ### SwiftUI (iOS App)
 
@@ -35,22 +29,17 @@ struct ContentView: View {
 
 ### Web (HTML/JavaScript)
 
-**Try it live:**
-🌐 **[Live Demo](https://chiejina.github.io/Body-Heatmap-Repo/web-demo/)** - See it in action!
-
-**Or use locally:**
-1. Open [`web-demo/index.html`](web-demo/index.html) in your browser
-2. Click on muscles to see their names
-3. Full instructions in [web-demo/README.md](web-demo/README.md)
-
-**Run with local server:**
+1. Open [`web-demo/index.html`](web-demo/index.html) directly in a browser
+2. Or run with a local server:
 ```bash
 cd web-demo
 python3 -m http.server 8000
 # Open http://localhost:8000
 ```
 
-## 📁 Repository Structure
+See [web-demo/README.md](web-demo/README.md) for details.
+
+## Repository Structure
 
 ```
 Body-Heatmap-Repo/
@@ -69,97 +58,21 @@ Body-Heatmap-Repo/
 └── INSTALLATION.md       # Detailed installation guide
 ```
 
-## ✨ Features
+## Customization
 
-### SwiftUI Version
-- ✅ **Fully Interactive** - Click on body parts to toggle selection
-- ✅ **Swift Package Manager** - Easy installation
-- ✅ **Zero Dependencies** - Pure SwiftUI + WebKit
-- ✅ **Customizable** - Colors, muscle groups, data-driven
-- ✅ **iOS 15+** - iPhone and iPad support
-- ✅ **Live Preview** - Test in Xcode Canvas
-
-### Web Version
-- ✅ **Pure HTML/CSS/JS** - No frameworks needed
-- ✅ **Click to Display** - Shows muscle names on click
-- ✅ **Responsive Design** - Works on all screen sizes
-- ✅ **Beautiful UI** - Modern gradient design
-- ✅ **All Browsers** - Chrome, Firefox, Safari, Edge
-
-## 🎯 Use Cases
-
-- **Fitness Apps** - Visualize which muscles were worked
-- **Workout Trackers** - Show training focus over time
-- **Exercise Libraries** - Display target muscles for exercises
-- **Physical Therapy** - Track rehabilitation progress
-- **Educational Tools** - Teach anatomy and muscle groups
-- **Training Plans** - Help users balance muscle group training
-
-## 📦 Installation
-
-### SwiftUI - Swift Package Manager
-
-1. In Xcode: **File → Add Package Dependencies...**
-2. Paste: `https://github.com/chiejina/Body-Heatmap-Repo`
-3. Click **Add Package**
-4. Import and use:
-
+### SwiftUI
+Modify colors in the `updateMuscleColors()` method:
 ```swift
-import BodyHeatmap
-
-struct MyView: View {
-    var body: some View {
-        NavigationView {
-            StandaloneBodyHeatmap()
-        }
-    }
-}
+let color = isToggled ? "rgba(255, 0, 0, 0.7)" : "__reset__"
 ```
 
-### SwiftUI - Manual Installation
-
-See detailed instructions in [swiftui-demo/README.md](swiftui-demo/README.md)
-
-1. Copy `swiftui-demo/StandaloneBodyHeatmap.swift` to your project
-2. Add `swiftui-demo/Muscles-simplified.svg` to Assets.xcassets
-3. Use in your SwiftUI views
-
-### Web - Direct Use
-
-1. Download or clone this repo
-2. Open `web-demo/index.html` in your browser
-3. That's it!
-
-For more details, see [INSTALLATION.md](INSTALLATION.md)
-
-## 🎨 Customization
-
-### SwiftUI - Change Colors
-
-```swift
-// In updateMuscleColors() method
-let color = isToggled ? "rgba(255, 0, 0, 0.7)" : "__reset__"  // Red highlight
-```
-
-### SwiftUI - Data-Driven Heatmap
-
-```swift
-// Drive colors based on workout intensity
-let stats = calculateMuscleStats(from: workoutLogs)
-// Use stats to color muscles by intensity
-```
-
-### Web - Customize Appearance
-
+### Web
+Modify CSS and JavaScript in `web-demo/index.html`:
 ```javascript
-// In index.html, modify the CSS gradient
-background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
-
-// Change muscle colors on click
 element.style.fill = 'rgba(255, 100, 100, 0.8)';
 ```
 
-## 🗺️ Muscle Group Mapping
+## Muscle Group Mapping
 
 Both versions include 24 clickable muscle groups:
 
@@ -173,7 +86,7 @@ Both versions include 24 clickable muscle groups:
 | **Legs** | Quadriceps, Hamstrings, Glutes, Calves |
 | **Other** | Hip Adductors, Hip Abductors, Neck |
 
-## 💻 Requirements
+## Requirements
 
 ### SwiftUI Version
 - iOS 15.0+
@@ -181,56 +94,15 @@ Both versions include 24 clickable muscle groups:
 - Swift 5.9+
 
 ### Web Version
-- Any modern web browser
-- No build tools required
-- Works offline
+- Modern web browser (Chrome, Firefox, Safari, Edge)
+- No build tools or dependencies required
 
-## 📚 Documentation
+## Documentation
 
 - [INSTALLATION.md](INSTALLATION.md) - Detailed installation for both platforms
 - [swiftui-demo/README.md](swiftui-demo/README.md) - SwiftUI-specific guide
 - [web-demo/README.md](web-demo/README.md) - Web version guide
 
-## 🤝 Contributing
+## License
 
-Contributions are welcome! Feel free to:
-- Report bugs
-- Suggest new features
-- Submit pull requests
-- Improve documentation
-
-## 🚀 Deploy Your Own Live Demo
-
-Want to host the web demo on GitHub Pages?
-
-1. **Fork or push this repo to GitHub**
-2. **Enable GitHub Pages:**
-   - Go to your repo **Settings** → **Pages**
-   - Under **Source**, select your branch (main/master)
-   - Click **Save**
-3. **Wait 2-3 minutes**, then visit:
-   - `https://chiejina.github.io/Body-Heatmap-Repo/web-demo/`
-
-**Alternative hosting options:**
-- **Netlify**: Drag & drop the `web-demo` folder → Instant deploy
-- **Vercel**: Connect your GitHub repo → Auto-deploy
-- **Any static host**: Upload `web-demo` folder via FTP
-
-## 📄 License
-
-MIT License - Feel free to use in your projects!
-
-## 🙋 Support
-
-- **Issues**: Open an issue on GitHub
-- **Questions**: Check the documentation in each demo folder
-- **Feature Requests**: Submit an issue with the "enhancement" label
-
----
-
-**Choose Your Platform:**
-- 📱 **iOS App?** → Use SwiftUI version (SPM or manual)
-- 🌐 **Website?** → Use Web version (HTML/JS)
-- 🎯 **Both?** → All files included!
-
-Made with ❤️ for the fitness and health app community
+MIT License
